@@ -24,7 +24,7 @@ var options = {
   watermarkImagePath: './exampleWatermark.png',
   relativeSize: 5,
   opacity: 50,
-  position: 'SouthEast' // NorthWest|North|NorthEast|West|Center|East|SouthWest|South|SouthEast
+  position: 'SouthEast'
 }
 
 exports.handler = function(event, context) {
@@ -43,3 +43,5 @@ exports.handler = function(event, context) {
   image)
 - `opacity`: How opaque the watermark should be. (100 is fully opaque, 0 is
   fully transparent)
+- `position`: Where the watermark should be located on the image. (options are
+  NorthWest|North|NorthEast|West|Center|East|SouthWest|South|SouthEast)
