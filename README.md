@@ -8,12 +8,12 @@ Note: this is a forked version of
 include:
 
 - addition of "position" property to the options object
-- use an environment variable to specify destination S3 bucket
+- use of an environment variable to specify destination S3 bucket
 - additional logging
 
 ## How to use
 
-- `npm install lambda-watermark`
+- `npm install --save markadamfoster/lambda-watermark`
 - Create your function (index.js)
 
 ```javascript
@@ -21,13 +21,14 @@ include:
 var LambdaWatermark = require('lambda-watermark')
 
 var options = {
-  watermarkImagePath: './exampleWatermark.png',
+  watermarkImagePath: './watermark.png',
   relativeSize: 5,
   opacity: 50,
-  position: 'SouthEast'
+  position: 'Center'
 }
 
 exports.handler = function(event, context) {
+  console.log('🚨 New image detected!')
   new LambdaWatermark(options)(event, context)
 }
 ```
