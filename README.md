@@ -8,6 +8,8 @@ Note: this is a forked version of
 include:
 
 - addition of "position" property to the options object
+- addition of "uploadACL" property to the options object
+  - This allows you to specify the permissions of the newly created object
 - use of an environment variable to specify destination S3 bucket
 - additional logging
 
@@ -24,7 +26,8 @@ var options = {
   watermarkImagePath: './watermark.png',
   relativeSize: 5,
   opacity: 50,
-  position: 'Center'
+  position: 'Center',
+  watermarkedImageACL: 'public-read'
 }
 
 exports.handler = function(event, context) {
@@ -34,8 +37,9 @@ exports.handler = function(event, context) {
 ```
 
 - [Set up Lambda service on AWS](http://docs.aws.amazon.com/lambda/latest/dg/getting-started.html)
-- Zip up your directory (index.js, watermark image, and node_modules) and upload
+- Zip up your directory (`index.js`, watermark image, and `node_modules`) and upload
   to your AWS Lambda function
+- specify the destination bucket as an environment variable
 
 ## Configuration (options)
 
@@ -46,3 +50,4 @@ exports.handler = function(event, context) {
   fully transparent)
 - `position`: Where the watermark should be located on the image. (options are
   NorthWest|North|NorthEast|West|Center|East|SouthWest|South|SouthEast)
+- watermarkedImageACL: ACL permissions on the final, watermarked image (i.e. 'public-read')
