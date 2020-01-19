@@ -5,6 +5,8 @@
   var options = {
     watermarkImagePath: './exampleWatermark.png',
     relativeSize: 5,
+    watermarkWidth: 250,
+    watermarkHeight: 133,
     opacity: 50
   };
 

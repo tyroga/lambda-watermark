@@ -1,9 +1,12 @@
 # lambda-watermark (forked)
 
-This module places a watermark in the bottom right corner of your image. An S3
-Lambda event can be used to watermark every image that is uploaded to S3.
+This module places a watermark in the chosen position of your image. An S3
+Lambda event can be used to watermark every image that is uploaded to S3 and to save it
+as an altered version retaining the original file.
 
 Note: this is a forked version of
+[lamda-watermark](https://github.com/markadamfoster/lambda-watermark)
+which is a forked version of
 [lamda-watermark](https://github.com/prestonvanloon/lambda-watermark). Changes
 include:
 
@@ -15,7 +18,7 @@ include:
 
 ## How to use
 
-- `npm install --save markadamfoster/lambda-watermark`
+- `npm install --save tyroga/lambda-watermark`
 - Create your function (index.js)
 
 ```javascript

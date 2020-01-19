@@ -13,6 +13,8 @@
         var watermarker = new Watermarker();
         watermarker.options.should.have.property('opacity');
         watermarker.options.should.have.property('relativeSize');
+        watermarker.options.should.have.property('originalWidth');
+        watermarker.options.should.have.property('originalHeight');
       });
 
       it('should return new instance of watermarker if called without `new`', function () {
@@ -22,6 +24,8 @@
       it('should not overwrite passed in options', function () {
         var options = {
           opacity: 100,
+          originalWidth: 100,
+          originalHeight: 100,
           relativeSize: 7
         };
         var watermarker = new Watermarker(options);
