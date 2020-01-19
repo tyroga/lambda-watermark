@@ -7,7 +7,8 @@
     relativeSize: 5,
     watermarkWidth: 250,
     watermarkHeight: 133,
-    opacity: 50
+    opacity: 50,
+    watermarkedImageACL: 'public-read'
   };
 
   exports.handler = function(event, context) {

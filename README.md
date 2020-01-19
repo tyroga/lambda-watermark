@@ -8,13 +8,13 @@ Note: this is a forked version of
 [lamda-watermark](https://github.com/markadamfoster/lambda-watermark)
 which is a forked version of
 [lamda-watermark](https://github.com/prestonvanloon/lambda-watermark). Changes
-include:
+features include:
 
-- addition of "position" property to the options object
-- addition of "uploadACL" property to the options object
-  - This allows you to specify the permissions of the newly created object
-- use of an environment variable to specify destination S3 bucket
-- additional logging
+- ability to position water mark
+- ability to set the permissions of your created file
+- set destination S3 bucket and path
+- save a version of the file as '-watermarked' to retain the original
+- logging
 
 ## How to use
 
@@ -26,10 +26,11 @@ include:
 var LambdaWatermark = require('lambda-watermark')
 
 var options = {
-  watermarkImagePath: './watermark.png',
+  watermarkImagePath: './exampleWatermark.png',
   relativeSize: 5,
+  watermarkWidth: 250,
+  watermarkHeight: 133,
   opacity: 50,
-  position: 'Center',
   watermarkedImageACL: 'public-read'
 }
 
@@ -47,6 +48,8 @@ exports.handler = function(event, context) {
 ## Configuration (options)
 
 - `watermarkImagePath`: The relative path to your image
+- `watermarkWidth`: Width of the watermark image
+- `watermarkHeight`: Height of the watermark image
 - `relativeSize`: The size of the watermark (percent relative to the parent
   image)
 - `opacity`: How opaque the watermark should be. (100 is fully opaque, 0 is
